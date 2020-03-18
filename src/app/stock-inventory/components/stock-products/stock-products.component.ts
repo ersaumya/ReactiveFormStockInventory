@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-stock-products',
@@ -14,5 +14,9 @@ export class StockProductsComponent implements OnInit {
   }
 
   @Input() parent: FormGroup;
+
+  get stocks(){
+    return (this.parent.get('stock')as FormArray).controls;
+  }
 
 }
