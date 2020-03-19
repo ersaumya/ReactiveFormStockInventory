@@ -50,4 +50,9 @@ export class StockInventoryComponent implements OnInit {
     control.push(this.createStock(stock));
   }
 
+  removeStock({group,index}:{group:FormGroup,index:number}){
+    const control=this.form.get('stock') as FormArray;
+    control.removeAt(index);
+  }
+
 }
