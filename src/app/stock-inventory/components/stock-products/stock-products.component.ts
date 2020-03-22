@@ -1,29 +1,32 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormArray } from '@angular/forms';
+import { Product } from '../../models/product.interface';
 
 @Component({
-  selector: 'app-stock-products',
-  templateUrl: './stock-products.component.html',
-  styleUrls: ['./stock-products.component.scss']
+  selector: "app-stock-products",
+  templateUrl: "./stock-products.component.html",
+  styleUrls: ["./stock-products.component.scss"]
 })
 export class StockProductsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   @Input() parent: FormGroup;
 
-  @Output() removed=new EventEmitter<any>();
+  @Input() map: Map<number,Product>;
 
-  get stocks(){
-    return (this.parent.get('stock')as FormArray).controls;
+  @Output() removed = new EventEmitter<any>();
+
+  getProduct(id){
+    return this.map.get(id);
   }
 
-  onRemove(group,index){
-    this.removed.emit({group,index});
-
+  get stocks() {
+    return (this.parent.get("stock") as FormArray).controls;
   }
 
+  onRemove(group, index) {
+    this.removed.emit({ group, index });
+  }
 }

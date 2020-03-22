@@ -1,0 +1,14 @@
+{
+  "cart": [
+    { "product_id": 1, "quantity": 10 },
+    { "product_id": 3, "quantity": 40 }
+  ],
+  "products": [
+    { "id": 1, "price":100000, "name": "Macbook air" },
+    { "id": 2, "price": 32000, "name": "Lenovo thinkpad" },
+    { "id": 3, "price": 40000, "name": "Hp Pavilion" },
+    { "id": 4, "price": 35000, "name": "Acer Inspiron" },
+    { "id": 5, "price": 28000, "name": "Asus Notebook" }
+  ]
+ 
+}
