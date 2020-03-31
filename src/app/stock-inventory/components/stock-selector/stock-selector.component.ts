@@ -22,6 +22,12 @@ export class StockSelectorComponent implements OnInit {
 
   onAdd(){
     this.added.emit(this.parent.get('selector').value);
+    //use .patchValue({product_id:''})------>to change particular formcontrol(partial value)
+    //use .setValue({product_id:'',quantity:10})------->to set all the formcontrol in the form
+    this.parent.get("selector").reset({
+      product_id: '',
+      quantity:10
+    });
   }
 
 }
