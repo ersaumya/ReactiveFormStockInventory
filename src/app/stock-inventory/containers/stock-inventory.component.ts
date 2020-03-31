@@ -13,6 +13,7 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 export class StockInventoryComponent implements OnInit {
 
   products:Product[];
+  total:number;
   productMap:Map<number,Product>;
 
   constructor(private fb:FormBuilder,private stockService:StockInventoryService) { }
@@ -26,6 +27,9 @@ export class StockInventoryComponent implements OnInit {
       this.productMap=new Map<number,Product>(myMap);
       this.products=products;
       cart.forEach(item=>this.addStock(item));
+       
+      this.calculateTotal(this.form.get('stock').value);
+      this.form.get('stock').valueChanges.subscribe(value=>this.calculateTotal(value));
     });
   }
 
@@ -37,6 +41,13 @@ export class StockInventoryComponent implements OnInit {
     selector:this.createStock({}),
     stock:this.fb.array([])
   })
+
+  calculateTotal(value:Item[]){
+    const total=value.reduce((prev,next)=>{
+      return prev + (next.quantity * this.productMap.get(next.product_id).price); 
+    },0);
+    this.total=total;
+  }
 
   createStock(stock){
     return this.fb.group({

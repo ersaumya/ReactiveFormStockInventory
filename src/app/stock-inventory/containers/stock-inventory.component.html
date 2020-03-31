@@ -7,6 +7,10 @@
        [parent]="form" 
        [map]="productMap"
        (removed)="removeStock($event)"></app-stock-products>
+
+       <div class="stock-inventory__price">
+           Total:{{total | currency:'INR'}}
+       </div>
        
        <div class="stock-inventory__buttons">
             <button type="submit" [disabled]="form.invalid">

@@ -6,7 +6,7 @@
                     {{getProduct(item.value.product_id).name}}
                 </div>
                 <div class="stock-product__price">
-                    {{getProduct(item.value.product_id).price | currency:'INR':true}}
+                    {{getProduct(item.value.product_id).price | currency:'INR'}}
                 </div>
                 
                 <input type="number" step="10" min="10" max="1000" formControlName="quantity">
