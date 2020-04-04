@@ -9,6 +9,12 @@
     { "id": 3, "price": 40000, "name": "Hp Pavilion" },
     { "id": 4, "price": 35000, "name": "Acer Inspiron" },
     { "id": 5, "price": 28000, "name": "Asus Notebook" }
+  ],
+  "branches":[
+    {"id":"A145"},
+    {"id":"B485"},
+    {"id":"C123"},
+    {"id":"D523"}
   ]
  
 }

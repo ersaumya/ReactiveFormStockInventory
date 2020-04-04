@@ -14,6 +14,13 @@ export class StockBranchComponent implements OnInit {
   }
   @Input() parent:FormGroup;
 
+  get unknown(){
+    return (
+      this.parent.get("store.branch").hasError("unknownBranch") &&
+      this.parent.get("store.branch").dirty
+    );
+  }
+
   get invalid(){
     return(
       this.parent.get('store.branch').hasError('invalidBranch')&&

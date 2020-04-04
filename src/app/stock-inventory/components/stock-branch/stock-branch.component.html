@@ -7,6 +7,9 @@
         <div class="error" *ngIf="invalid">
             Invalid Branch code : 1 letter,3 numbers
         </div>
+        <div class="error" *ngIf="unknown">
+           Unknown branch code,please check the Id
+        </div>
         <input type="text" placeholder="Manager Code" formControlName="code">
         <!-- *ngIf="parent.get('store.code').hasError('required') && parent.get('store.code').touched" -->
         <div class="error" *ngIf="required('code')">
