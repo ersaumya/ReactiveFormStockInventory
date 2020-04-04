@@ -14,4 +14,11 @@ export class StockBranchComponent implements OnInit {
   }
   @Input() parent:FormGroup;
 
+  required(name:string){
+    return (
+      this.parent.get(`store.${name}`).hasError("required") &&
+      this.parent.get(`store.${name}`).touched
+    );
+  }
+
 }
